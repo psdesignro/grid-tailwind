@@ -1,0 +1,256 @@
+
+$primary-violet: hsl(263, 55%, 52%);
+
+$graysh-blue: hsl(217, 19%, 35%);
+
+$neutral-white: hsl(0,0%,100%);
+
+$blackish-blue:  hsl(219, 29%, 14%);
+
+$light-grey: hsl(0, 0%, 81%);
+$light-blue: hsl(210, 46%, 95%);
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&display=swap');
+
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+p, a, div{
+    font-size: 13px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+   
+}
+ h2{
+  font-size: 20px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+ }
+
+ body{
+    background-color: $light-blue;
+    padding: 24px;
+ }
+
+
+ @mixin card-flex-container{
+  display: flex;
+  flex-direction: column;
+  gap:18px;
+ 
+  padding:32px;
+  border-radius: 8px;
+
+
+ }
+
+ .card{
+  @include card-flex-container;
+ 
+ }
+
+
+
+
+ @mixin responsive-960 {
+  @media (min-width: 960px) {
+    @content;
+  }
+}
+
+.container{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:24px;
+  
+
+  @include responsive-960 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+
+    .card.violet-bg{
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end:2;
+    }
+
+    .card.card.white-bg.kira{
+      grid-column-start: 4;
+      grid-column-end: 5;
+      grid-row-start: 1;
+      grid-row-end:3;
+    }
+
+    .card.medium-grey-bg{
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end:2;
+    }
+
+    .card.dark-grey-bg{
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end:3;
+    }
+
+  }
+}
+
+
+ 
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin:0;
+  gap:32px;
+ }
+
+
+
+    .card.violet-bg{
+        background-color: $primary-violet;
+        color: rgba( $neutral-white, 0.7);
+        background-image: url('/images/bg-pattern-quotation.svg');
+        background-position: right 24px top 0;
+        position: relative;
+        background-repeat: no-repeat;
+
+        h2{
+          color: $neutral-white;
+        }
+        p.author-position{
+          color: rgba( $neutral-white, 0.5);
+        }
+    }
+
+    .card.medium-grey-bg{
+      background-color: $graysh-blue;
+      color: rgba( $neutral-white, 0.7);
+
+      h2{
+        color: $neutral-white;
+      }
+
+      p.author-position{
+        color: rgba( $neutral-white, 0.5);
+      }
+  }
+
+  .card.white-bg{
+    background-color: $neutral-white;
+    color: rgba( $graysh-blue, 0.7);
+
+    h2, .author-name{
+      color: $blackish-blue;
+    }
+
+    p.author-position{
+      color: rgba( $blackish-blue, 0.5);
+    }
+}
+
+.card.dark-grey-bg{
+  background-color: $blackish-blue;
+  color: rgba( $neutral-white, 0.7);
+
+  h2, p.author-name{
+    color: $neutral-white;
+  }
+
+  .author-position{
+    color: rgba( $neutral-white, 0.5);
+
+  }
+
+  .author-name{
+    color: $graysh-blue;
+  }
+}
+
+
+     .card img {
+        border-radius: 100%;
+        align-self: flex-start;
+        border: 3px solid rgba( $neutral-white, 0.5);
+        height: 39px;
+        width: auto;
+    }
+
+    .author{
+        display:flex;
+        gap:16px;
+
+        .author-text{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name{
+            color: $neutral-white;
+            font-size: 13px;
+        }
+    }
+
+
+    .speech{
+      display: flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+
+ 
